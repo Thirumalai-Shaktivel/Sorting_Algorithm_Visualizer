@@ -1,7 +1,26 @@
+#include "GL/glut.h"
+#include "GL/gl.h"
 #include <stdlib.h>
 #include <iostream>
 #include <unistd.h>
 int choice;
+
+void renderFunction() {
+
+}
+
+void keyboardEvent(unsigned char c, int x, int y) {
+	switch(c) {
+		case 27:
+		// Exit on `Esc` key pressed
+			exit(0);
+		case 'S':
+		case 's':
+		// start on `s` or `S` key pressed
+			break;
+	}
+}
+
 int main(int argc, char* argv[]) {
 	std::cout << "\n^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*\n";
 	std::cout <<"Select the Sorting algorithm to Visualize:\n\n";
@@ -11,5 +30,16 @@ int main(int argc, char* argv[]) {
 	std::cout <<"Enter your Choice: ";
 	scanf("%d", &choice);
 	std::cout << "\n^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*\n";
+
+	glutInit(&argc, argv);
+	glutInitDisplayMode(GLUT_SINGLE);
+	glutInitWindowSize(1500, 750);
+	glutInitWindowPosition(200, 200);
+	glutCreateWindow("Sorting Algorithm Visualization");
+
+	glutDisplayFunc(renderFunction);
+	glutKeyboardFunc(keyboardEvent);
+	gluOrtho2D(-1.025,1.005,-1,1.35);
+	glutMainLoop();
 	return 0;
 }

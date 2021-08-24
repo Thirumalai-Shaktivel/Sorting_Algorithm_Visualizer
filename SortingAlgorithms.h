@@ -4,6 +4,8 @@ void swap (int* A, int* B) {
     int tmp = *A;
     *A = *B;
     *B = tmp;
+    renderFunction();
+    usleep(delay);
 }
 
 // >>>>>>>>>>>>>>>>  Selection Sort  >>>>>>>>>>>>>>>>
