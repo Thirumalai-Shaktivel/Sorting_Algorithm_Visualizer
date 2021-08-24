@@ -4,6 +4,7 @@
 #include <iostream>
 #include <unistd.h>
 int choice;
+void (*sort)(int*, int, int);
 
 void renderFunction() {
 
@@ -17,11 +18,12 @@ void keyboardEvent(unsigned char c, int x, int y) {
 		case 'S':
 		case 's':
 		// start on `s` or `S` key pressed
+			sort(arr, length, choice);
 			break;
 	}
 }
 
-int main(int argc, char* argv[]) {
+int setUpGlutAndArray(int argc, char** argv, void (*sortingAlgorithm)(int*, int, int)) {
 	std::cout << "\n^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*\n";
 	std::cout <<"Select the Sorting algorithm to Visualize:\n\n";
 	std::cout <<"\t1. Cycle Sort\n\t2. Selection Sort\n\t3. Radix Sort\n\t"
@@ -30,6 +32,8 @@ int main(int argc, char* argv[]) {
 	std::cout <<"Enter your Choice: ";
 	scanf("%d", &choice);
 	std::cout << "\n^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*\n";
+
+	sort = sortingAlgorithm;
 
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_SINGLE);
