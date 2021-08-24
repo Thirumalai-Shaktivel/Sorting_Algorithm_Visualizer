@@ -8,6 +8,49 @@ void swap (int* A, int* B) {
     usleep(delay);
 }
 
+
+// >>>>>>>>>>>>>>>>  Cycle Sort  >>>>>>>>>>>>>>>>
+void CycleSort(int arr[], int n)
+{
+    int writes = 0;
+    for (int cyc = 0; cyc <= n - 2; cyc++) {
+        int item = arr[cyc];
+        int pos = cyc;
+        for (int i = cyc + 1; i < n; i++)
+            if (arr[i] < item) {
+                pos++; cmp++;
+            }
+
+        if (pos == cyc) continue;
+
+        while (item == arr[pos]){
+            pos++; cmp++;
+        }
+        if (pos != cyc) {
+            swap(&item, &arr[pos]);
+            writes++; cmp++;
+        }
+        while (pos != cyc) {
+            pos = cyc;
+
+            for (int i = cyc + 1; i < n; i++)
+                if (arr[i] < item){
+                    pos++; cmp++;
+                }
+
+            while (item == arr[pos]){
+                    pos++; cmp++;
+                }
+
+            if (item != arr[pos]) {
+                swap(&item, &arr[pos]);
+                writes++; cmp++;
+            }
+        }
+    }
+}
+// <<<<<<<<<<<<<<<<  Cycle Sort  <<<<<<<<<<<<<<<<
+
 // >>>>>>>>>>>>>>>>  Selection Sort  >>>>>>>>>>>>>>>>
 void SelectionSort (int* arr, int n) {
     int k = 0;
