@@ -20,6 +20,9 @@ void visualizeQuickSort(int* arr, int size, int choice)
 int main(int argc, char* argv[])
 {
 	srand(time(NULL));
+
+	length = 50;
 	setUpGlutAndArray(argc, argv, visualizeQuickSort);
+	free(arr);
 	return 0;
 }

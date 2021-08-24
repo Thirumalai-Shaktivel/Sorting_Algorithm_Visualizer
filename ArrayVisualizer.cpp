@@ -3,8 +3,15 @@
 #include <stdlib.h>
 #include <iostream>
 #include <unistd.h>
-int choice;
+int length, choice;
+std::string SortingName;
+int* arr;
 void (*sort)(int*, int, int);
+
+void randomizeArray(int* arr, int length) {
+	for(int i = length - 1; i > 0; --i)
+		std::swap(arr[i], arr[rand() % (i+1)]);
+}
 
 void renderFunction() {
 
@@ -14,6 +21,7 @@ void keyboardEvent(unsigned char c, int x, int y) {
 	switch(c) {
 		case 27:
 		// Exit on `Esc` key pressed
+			free(arr);
 			exit(0);
 		case 'S':
 		case 's':
@@ -34,6 +42,11 @@ int setUpGlutAndArray(int argc, char** argv, void (*sortingAlgorithm)(int*, int,
 	std::cout << "\n^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*\n";
 
 	sort = sortingAlgorithm;
+	arr = (int*) malloc(sizeof(int) * length);
+
+	for(int i = 0; i < length; ++i)
+		arr[i] = i;
+	randomizeArray(arr, length);
 
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_SINGLE);
