@@ -11,6 +11,10 @@ void visualizeQuickSort(int* arr, int size, int choice)
 			SortingName = "Selection Sort";
 			SelectionSort(arr, size-1);
 			break;
+		case 3:
+			SortingName = "Radix Sort";
+			RadixSort(arr, size);
+			break;
 		default:
 			std::cout << "Error!! Invalid Input!";
 			exit(0);
