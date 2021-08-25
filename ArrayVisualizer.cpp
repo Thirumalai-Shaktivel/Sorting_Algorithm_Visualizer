@@ -13,9 +13,17 @@ void randomizeArray(int* arr, int length) {
 		std::swap(arr[i], arr[rand() % (i+1)]);
 }
 
+void drawBitmapString(float x,float y,std::string s) {
+	glColor3f(1,1,1);
+	glRasterPos2f(x, y);
+	for(int i=0;i<s.size();i++)
+		glutBitmapCharacter( GLUT_BITMAP_TIMES_ROMAN_24, s[i]);
+}
+
 void renderFunction() {
 	glClearColor(0.0, 0.0, 0.0, 0.0);
 	glClear(GL_COLOR_BUFFER_BIT);
+	drawBitmapString(-0.1, 1.25, SortingName);
 	glColor3f(1.0, 1.0, 1.0);
 	glOrtho(-1.0, 1.0, -1.0, 1.0, -1.0, 1.0);
 
