@@ -18,33 +18,33 @@ void CycleSort(int arr[], int n)
         int pos = cyc;
         for (int i = cyc + 1; i < n; i++)
             if (arr[i] < item) {
-                pos++; cmp++;
+                pos++;
             }
 
         if (pos == cyc) continue;
 
         while (item == arr[pos]){
-            pos++; cmp++;
+            pos++;
         }
         if (pos != cyc) {
             swap(&item, &arr[pos]);
-            writes++; cmp++;
+            writes++;
         }
         while (pos != cyc) {
             pos = cyc;
 
             for (int i = cyc + 1; i < n; i++)
                 if (arr[i] < item){
-                    pos++; cmp++;
+                    pos++;
                 }
 
             while (item == arr[pos]){
-                    pos++; cmp++;
+                    pos++;
                 }
 
             if (item != arr[pos]) {
                 swap(&item, &arr[pos]);
-                writes++; cmp++;
+                writes++;
             }
         }
     }
@@ -58,7 +58,7 @@ void SelectionSort (int* arr, int n) {
         k = i;
         for (int j = i+1; j <= n; j++)
             if(arr[k] > arr[j]) {
-                k = j; cmp++;
+                k = j;
             }
         swap(&arr[i], &arr[k]);
     }

@@ -21,6 +21,7 @@ int main(int argc, char* argv[])
 {
 	srand(time(NULL));
 
+	delay = 50000;
 	length = 50;
 	setUpGlutAndArray(argc, argv, visualizeQuickSort);
 	free(arr);

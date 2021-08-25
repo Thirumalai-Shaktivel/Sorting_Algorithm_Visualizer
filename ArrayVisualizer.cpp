@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <iostream>
 #include <unistd.h>
-int length, choice;
+int length, delay, choice;
 std::string SortingName;
 int* arr;
 void (*sort)(int*, int, int);
@@ -14,7 +14,41 @@ void randomizeArray(int* arr, int length) {
 }
 
 void renderFunction() {
+	glClearColor(0.0, 0.0, 0.0, 0.0);
+	glClear(GL_COLOR_BUFFER_BIT);
+	glColor3f(1.0, 1.0, 1.0);
+	glOrtho(-1.0, 1.0, -1.0, 1.0, -1.0, 1.0);
 
+	float l = (float) length;
+	float widthAdder = 1/l;
+
+	for(int i = 0; i < length; ++i) {
+		glBegin(GL_POLYGON);
+
+		float arrayIndexHeightRation = 2*(arr[i] + 1)/l;
+		float widthIndexAdder = 2*i/l;
+
+		float leftX   = -1 + widthIndexAdder;
+		float rightX  = leftX + widthAdder;
+		float bottomY = -1;
+		float topY    = bottomY + arrayIndexHeightRation;
+
+		glColor4f(1,0,0,0);
+		glVertex2f(leftX, bottomY);
+
+		glColor4f(0,1,0,0);
+		glVertex2f(rightX, bottomY);
+
+		glColor4f(0,0,1,0);
+		glVertex2f(rightX, topY);
+
+		glColor4f(0,0,0,1);
+		glVertex2f(leftX, topY);
+
+		glEnd();
+	}
+
+	glFlush();
 }
 
 void keyboardEvent(unsigned char c, int x, int y) {
