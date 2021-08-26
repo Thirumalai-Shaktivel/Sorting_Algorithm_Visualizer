@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <iostream>
 #include <unistd.h>
-int length, delay, choice;
+int length, delay, choice, swaps, cmp;
 std::string SortingName;
 int* arr;
 void (*sort)(int*, int, int);
@@ -24,6 +24,8 @@ void renderFunction() {
 	glClearColor(0.0, 0.0, 0.0, 0.0);
 	glClear(GL_COLOR_BUFFER_BIT);
 	drawBitmapString(-0.1, 1.25, SortingName);
+	drawBitmapString(-1, 1.17,"Comparisons : "+std::to_string(cmp));
+	drawBitmapString(-1, 1.06,"Swaps            : "+std::to_string(swaps));
 	glColor3f(1.0, 1.0, 1.0);
 	glOrtho(-1.0, 1.0, -1.0, 1.0, -1.0, 1.0);
 
