@@ -94,3 +94,26 @@ void RadixSort(int arr[], int n) {
         countSort(arr, n, exp);
 }
 // <<<<<<<<<<<<<<<<  Radix Sort  <<<<<<<<<<<<<<<<
+
+// >>>>>>>>>>>>>>>>  Quick Sort  >>>>>>>>>>>>>>>>
+int Partition(int arr[], int low, int high){
+    int i = low - 1;
+    int pivot = arr[high];
+    for(int j = low; j < high; j++) {
+        if(arr[j] <= pivot) {
+            i++; cmp++;
+            swap(&arr[i], &arr[j]);
+        }
+    }
+    swap(&arr[high], &arr[i+1]);
+    return i+1;
+}
+void QuickSort(int arr[], int low, int high){
+    if(low < high) {
+        int pivot = Partition(arr, low, high);
+        cmp++;
+        QuickSort(arr, low, pivot-1);
+        QuickSort(arr, pivot+1, high);
+    }
+}
+// <<<<<<<<<<<<<<<<  Quick Sort  <<<<<<<<<<<<<<<<
