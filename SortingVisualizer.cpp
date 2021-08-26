@@ -23,6 +23,10 @@ void visualizeQuickSort(int* arr, int size, int choice)
 			SortingName = "Heap Sort";
 			HeapSort(arr, size-1);
 			break;
+		case 6:
+			SortingName = "Merge Sort";
+			MergeSort(arr, 0, size - 1);
+			break;
 		default:
 			std::cout << "Error!! Invalid Input!";
 			exit(0);

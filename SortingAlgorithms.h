@@ -145,3 +145,50 @@ void HeapSort (int* arr, int n) {
     }
 }
 // <<<<<<<<<<<<<<<<  Heap Sort  <<<<<<<<<<<<<<<<
+
+// >>>>>>>>>>>>>>>>  Merge Sort  >>>>>>>>>>>>>>>>
+void merge(int arr[], int p, int q, int r) {
+    int n1 = q - p + 1, n2 = r - q;
+    int L[n1], M[n2];
+
+    for (int i = 0; i < n1; i++)
+        L[i] = arr[p + i];
+    for (int j = 0; j < n2; j++)
+        M[j] = arr[q + 1 + j];
+
+    int i, j, k; i = j = 0; k = p;
+
+    while (i < n1 && j < n2) {
+        cmp++;
+        if (L[i] <= M[j]) {
+            swap(&arr[k], &L[i]);
+            cmp++; i++;
+        } else {
+            swap(&arr[k], &M[j]);
+            j++;
+        }
+        k++;
+    }
+    while (i < n1) {
+        swap(&arr[k], &L[i]);
+        i++; k++; cmp++;
+    }
+
+    while (j < n2) {
+        swap(&arr[k], &M[j]);
+        j++; k++; cmp++;
+    }
+}
+
+void MergeSort(int arr[], int l, int r) {
+    if (l < r) {
+        cmp++;
+        int m = l + (r - l) / 2;
+
+        MergeSort(arr, l, m);
+        MergeSort(arr, m + 1, r);
+
+        merge(arr, l, m, r);
+    }
+}
+// <<<<<<<<<<<<<<<<  Merge Sort  <<<<<<<<<<<<<<<<
