@@ -31,6 +31,10 @@ void visualizeQuickSort(int* arr, int size, int choice)
 			SortingName = "Bubble Sort";
 			BubbleSort(arr, size-1);
 			break;
+		case 8:
+			SortingName = "Insertion Sort";
+			InsertionSort(arr, size-1);
+			break;
 		default:
 			std::cout << red <<"Error!! Invalid Input!"<< no_color;
 			std::cout << yellow << "\n^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*\n" << no_color;

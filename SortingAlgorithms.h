@@ -207,3 +207,17 @@ void BubbleSort(int* arr, int n) {
     }
 }
 // <<<<<<<<<<<<<<<<  Bubble Sort  <<<<<<<<<<<<<<<<
+
+// >>>>>>>>>>>>>>>>  Insertion Sort  >>>>>>>>>>>>>>>>
+void InsertionSort (int* arr, int n) {
+    int value, tmp;
+    for (int i = 1; i <= n; i++) {
+        tmp = i; value = arr[i];
+        while (tmp > 0 && arr[tmp-1] > value){
+            swap(&arr[tmp--], &arr[tmp-1]);
+            cmp++;
+        }
+        arr[tmp--] = value;
+    }
+}
+// <<<<<<<<<<<<<<<<  Insertion Sort  <<<<<<<<<<<<<<<<
