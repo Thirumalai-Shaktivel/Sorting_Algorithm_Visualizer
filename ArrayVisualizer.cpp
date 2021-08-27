@@ -3,9 +3,17 @@
 #include <stdlib.h>
 #include <iostream>
 #include <unistd.h>
+#include <chrono>
+
+using std::chrono::high_resolution_clock;
+using std::chrono::duration_cast;
+using std::chrono::duration;
+using std::chrono::seconds;
+
 int length, delay, choice, swaps, cmp;
 std::string SortingName;
 int* arr;
+
 void (*sort)(int*, int, int);
 
 void randomizeArray(int* arr, int length) {
@@ -70,7 +78,13 @@ void keyboardEvent(unsigned char c, int x, int y) {
 		case 'S':
 		case 's':
 		// start on `s` or `S` key pressed
+			auto t1 = high_resolution_clock::now();
 			sort(arr, length, choice);
+			auto t2 = high_resolution_clock::now();
+			auto ms_int = duration_cast<seconds>(t2 - t1);
+			std::cout << "Time taken for " << length << " items\t: ";
+			std::cout << ms_int.count() << " seconds";
+			std::cout << "\n^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*\n";
 			break;
 	}
 }
