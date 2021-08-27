@@ -192,3 +192,18 @@ void MergeSort(int arr[], int l, int r) {
     }
 }
 // <<<<<<<<<<<<<<<<  Merge Sort  <<<<<<<<<<<<<<<<
+
+// >>>>>>>>>>>>>>>>  Bubble Sort  >>>>>>>>>>>>>>>>
+void BubbleSort(int* arr, int n) {
+    for(int i = 0; i < n; i++) {
+        int flag = 0;
+        for(int j = 0; j < n-i; j++)
+            if(arr[j] > arr[j+1]) {
+                swap(&arr[j], &arr[j+1]);
+                flag = 1;
+                cmp++;
+            }
+        if (flag == 0) break;
+    }
+}
+// <<<<<<<<<<<<<<<<  Bubble Sort  <<<<<<<<<<<<<<<<
