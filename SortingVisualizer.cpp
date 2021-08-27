@@ -28,9 +28,11 @@ void visualizeQuickSort(int* arr, int size, int choice)
 			MergeSort(arr, 0, size - 1);
 			break;
 		default:
-			std::cout << "Error!! Invalid Input!";
+			std::cout << red <<"Error!! Invalid Input!"<< no_color;
+			std::cout << yellow << "\n^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*\n" << no_color;
 			exit(0);
-	}
+		}
+		std::cout << "\nSelected Algorithm\t\t: " <<red<< SortingName <<no_color<<"\n";
 }
 
 int main(int argc, char* argv[])

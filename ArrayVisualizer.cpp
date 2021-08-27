@@ -5,11 +5,13 @@
 #include <unistd.h>
 #include <chrono>
 
-using std::chrono::high_resolution_clock;
-using std::chrono::duration_cast;
-using std::chrono::duration;
-using std::chrono::seconds;
-
+auto red = "\033[1;31m";
+auto yellow = "\033[1;33m";
+auto green = "\033[1;32m";
+auto white = "\033[1;37m";
+auto purple = "\033[1;35m";
+auto cyan = "\033[1;36m";
+auto no_color = "\033[0m";
 int length, delay, choice, swaps, cmp;
 std::string SortingName;
 int* arr;
@@ -82,22 +84,28 @@ void keyboardEvent(unsigned char c, int x, int y) {
 			sort(arr, length, choice);
 			auto t2 = high_resolution_clock::now();
 			auto ms_int = duration_cast<seconds>(t2 - t1);
-			std::cout << "Time taken for " << length << " items\t: ";
-			std::cout << ms_int.count() << " seconds";
-			std::cout << "\n^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*\n";
+			std::cout << "Time taken for "<< cyan << length  << no_color << " items\t: ";
+			std::cout << red << ms_int.count() << " seconds" << no_color;
+			std::cout << yellow << "\n^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*\n" << no_color;
 			break;
 	}
 }
 
 int setUpGlutAndArray(int argc, char** argv, void (*sortingAlgorithm)(int*, int, int)) {
-	std::cout << "\n^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*\n";
-	std::cout <<"Select the Sorting algorithm to Visualize:\n\n";
-	std::cout <<"\t1. Cycle Sort\n\t2. Selection Sort\n\t3. Radix Sort\n\t"
+	std::cout << yellow << "\n^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*\n";
+	std::cout << green <<"Select the Sorting algorithm to Visualize:\n\n";
+	std::cout << white <<"\t1. Cycle Sort\n\t2. Selection Sort\n\t3. Radix Sort\n\t"
 	"4. Quick Sort\n\t5. Heap Sort\n\t6. Merge Sort\n\t7. Bubble Sort\n\t"
 	"8. Insertion Sort\n\t9. Cocktail Sort\n\t10. Gnome Sort\n\n";
-	std::cout <<"Enter your Choice: ";
+	std::cout << cyan <<"Enter your Choice: " << no_color;
 	scanf("%d", &choice);
-	std::cout << "\n^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*\n";
+	std::cout << yellow << "\n^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*\n";
+	std::cout << green << "Instructions:\n" << no_color
+			  <<"\tPress"<< purple <<" s" << white
+			  <<" | "<< purple <<"S "<< white <<"-> Start the Sorting\n"
+			    "\tPress "<< purple <<"Esc   "<< white <<"-> Exit the Visualizer";
+	std::cout << yellow << "\n^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*\n" << no_color;
+	swaps = cmp = 0;
 
 	sort = sortingAlgorithm;
 	arr = (int*) malloc(sizeof(int) * length);
