@@ -5,6 +5,11 @@
 #include <unistd.h>
 #include <chrono>
 
+using std::chrono::high_resolution_clock;
+using std::chrono::duration_cast;
+using std::chrono::duration;
+using std::chrono::seconds;
+
 auto red = "\033[1;31m";
 auto yellow = "\033[1;33m";
 auto green = "\033[1;32m";
@@ -12,6 +17,7 @@ auto white = "\033[1;37m";
 auto purple = "\033[1;35m";
 auto cyan = "\033[1;36m";
 auto no_color = "\033[0m";
+
 int length, delay, choice, swaps, cmp;
 std::string SortingName;
 int* arr;
@@ -84,7 +90,7 @@ void keyboardEvent(unsigned char c, int x, int y) {
 			sort(arr, length, choice);
 			auto t2 = high_resolution_clock::now();
 			auto ms_int = duration_cast<seconds>(t2 - t1);
-			std::cout << "Time taken for "<< cyan << length  << no_color << " items\t: ";
+			std::cout << "Time taken for "<< cyan << length  << no_color << " items\t\t: ";
 			std::cout << red << ms_int.count() << " seconds" << no_color;
 			std::cout << yellow << "\n^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*\n" << no_color;
 			break;

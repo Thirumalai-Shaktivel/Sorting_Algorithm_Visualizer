@@ -39,6 +39,10 @@ void visualizeQuickSort(int* arr, int size, int choice)
 			SortingName = "Cocktail Sort";
 			CocktailSort(arr, size);
 			break;
+		case 10:
+			SortingName = "Gnome Sort";
+			GnomeSort(arr, size);
+			break;
 		default:
 			std::cout << red <<"Error!! Invalid Input!"<< no_color;
 			std::cout << yellow << "\n^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*\n" << no_color;

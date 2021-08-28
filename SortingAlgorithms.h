@@ -249,3 +249,21 @@ void CocktailSort(int a[], int n)
     }
 }
 // <<<<<<<<<<<<<<<<  Cocktail Sort  <<<<<<<<<<<<<<<<
+
+// >>>>>>>>>>>>>>>>  Gnome Sort  >>>>>>>>>>>>>>>>
+void GnomeSort(int arr[], int n) {
+    int index = 0;
+    while (index < n) {
+        cmp++;
+        if (index == 0) {
+            index++; cmp++;
+        }
+        if (arr[index] >= arr[index - 1]){
+            index++; cmp++;
+        } else {
+            swap(&arr[index], &arr[index - 1]);
+            index--;
+        }
+    }
+}
+// <<<<<<<<<<<<<<<<  Gnome Sort  <<<<<<<<<<<<<<<<
