@@ -28,8 +28,8 @@ The entire design process can be explained using a simple algorithm. The algorit
     - Call glFlush().
 - Step 9: Stop.
 ## FLOW CHART
-A flow diagram is a common type of chart that represents an algorithm or process showing the steps as boxes of various kinds, and their order by connecting these with arrows. Flow diagrams are used in analysing, designing, documenting or managing a process or program in various fields. The following Flow Diagram shows the processing of different operations in this project.
-![Flow Chart](Snapshots/FlowChart.png)
+A flow diagram is a common type of chart that represents an algorithm or process showing the steps as boxes of various kinds, and their order by connecting these with arrows. Flow diagrams are used in analysing, designing, documenting or managing a process or program in various fields. The following Flow Diagram shows the processing of different operations in this project:<br>  
+<img src="Snapshots/FlowChart.png" alt="Flow Chart" width="600px">
 ## IMPLEMENTATION
 - randomizeArray():
   - This function is used to shuffle the values in the arrays creating an unsorted array.
