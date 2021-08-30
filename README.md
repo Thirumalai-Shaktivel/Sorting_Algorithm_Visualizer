@@ -51,5 +51,15 @@ Some of the ideas to be implemented are:
 - Take input from the user for speed and number of items in the array.
 - Feature for comparison between the algorithms to display the performance.
 - Take input from the user for changing the colour of the columns in the output.
-
-If you have any doubt related to this project, feel free to contact me [Twitter](https://twitter.com/sh0ck_thi) or [mail](mailto:thirumalaishaktivel@gmail.com) me.
+## HOW TO RUN
+Clone the repository
+```console
+git clone https://github.com/Thirumalai-Shaktivel/Sorting_Algorithm_Visualizer.git
+cd Sorting_Algorithm_Visualizer
+```
+Execute the program
+```console
+g++ src/SortingVisualizer.cpp -lGL -lGLU -lglut
+./a.out
+```
+If you have any doubt related to this mini-project, feel free to contact me [Twitter](https://twitter.com/sh0ck_thi) or [mail](mailto:thirumalaishaktivel@gmail.com) me.
