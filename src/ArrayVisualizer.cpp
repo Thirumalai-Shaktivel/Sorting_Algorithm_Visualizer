@@ -10,6 +10,7 @@ using std::chrono::duration_cast;
 using std::chrono::duration;
 using std::chrono::seconds;
 
+// colors to display on the terminal
 auto red = "\033[1;31m";
 auto yellow = "\033[1;33m";
 auto green = "\033[1;32m";
@@ -24,11 +25,13 @@ int* arr;
 
 void (*sort)(int*, int, int);
 
+// shuffles the array items
 void randomizeArray(int* arr, int length) {
 	for(int i = length - 1; i > 0; --i)
 		std::swap(arr[i], arr[rand() % (i+1)]);
 }
 
+// displays the text on the output window
 void drawBitmapString(float x,float y,std::string s) {
 	glColor3f(1,1,1);
 	glRasterPos2f(x, y);
@@ -36,12 +39,15 @@ void drawBitmapString(float x,float y,std::string s) {
 		glutBitmapCharacter( GLUT_BITMAP_TIMES_ROMAN_24, s[i]);
 }
 
+// renders each columns in the output window
 void renderFunction() {
 	glClearColor(0.0, 0.0, 0.0, 0.0);
 	glClear(GL_COLOR_BUFFER_BIT);
+
 	drawBitmapString(-0.1, 1.25, SortingName);
 	drawBitmapString(-1, 1.17,"Comparisons : "+std::to_string(cmp));
 	drawBitmapString(-1, 1.06,"Swaps            : "+std::to_string(swaps));
+
 	glColor3f(1.0, 1.0, 1.0);
 	glOrtho(-1.0, 1.0, -1.0, 1.0, -1.0, 1.0);
 
@@ -59,15 +65,19 @@ void renderFunction() {
 		float bottomY = -1;
 		float topY    = bottomY + arrayIndexHeightRation;
 
+		// bottom left
 		glColor4f(1,0,0,0);
 		glVertex2f(leftX, bottomY);
 
+		// bottom right
 		glColor4f(0,1,0,0);
 		glVertex2f(rightX, bottomY);
 
+		// top right
 		glColor4f(0,0,1,0);
 		glVertex2f(rightX, topY);
 
+		// top left
 		glColor4f(0,0,0,1);
 		glVertex2f(leftX, topY);
 
@@ -86,10 +96,10 @@ void keyboardEvent(unsigned char c, int x, int y) {
 		case 'S':
 		case 's':
 		// start on `s` or `S` key pressed
-			auto t1 = high_resolution_clock::now();
+			auto start_time = high_resolution_clock::now();
 			sort(arr, length, choice);
-			auto t2 = high_resolution_clock::now();
-			auto ms_int = duration_cast<seconds>(t2 - t1);
+			auto end_time = high_resolution_clock::now();
+			auto ms_int = duration_cast<seconds>(end_time - start_time);
 			std::cout << "Time taken for "<< cyan << length  << no_color << " items\t\t: ";
 			std::cout << red << ms_int.count() << " seconds" << no_color;
 			std::cout << yellow << "\n^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*^*\n" << no_color;

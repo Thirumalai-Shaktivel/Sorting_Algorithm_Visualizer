@@ -55,7 +55,9 @@ int main(int argc, char* argv[])
 {
 	srand(time(NULL));
 
-	delay = 50000;
+	// Decrease the delay to increase the speed.
+	delay = 50000; // Delay in milliseconds
+	// Length of the columns in the output
 	length = 50;
 	setUpGlutAndArray(argc, argv, visualizeQuickSort);
 	free(arr);
