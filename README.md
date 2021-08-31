@@ -44,6 +44,10 @@ A flow diagram is a common type of chart that represents an algorithm or process
 
 The sorting algorithms used in this mini-project are **Cycle Sort**, **Selection Sort**, **Radix Sort**, **Quick Sort**, **Heap Sort**, **Merge Sort**, **Bubble Sort**, **Insertion Sort**, **Cocktail Sort**, and **Gnome Sort**.
 ## SNAPSHOTS
+<img src="Snapshots/Output_1.gif" alt="Output 1" width="723px">
+<img src="Snapshots/Output_2.gif" alt="Output 2">
+<img src="Snapshots/Output_3.gif" alt="Output 3">
+
 ## FUTURE ENHANCEMENT
 The currently developed project can improve in many areas. Time constraints and deficient knowledge have been major factors in limiting the features offered by this display model.
 Some of the ideas to be implemented are:
